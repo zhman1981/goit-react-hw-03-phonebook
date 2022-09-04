@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/css';
+import { SubmitButton } from './Contacts.styled';
 
 const Contacts = ({ contacts, onDeleteContact }) => {
   return (
@@ -8,16 +8,9 @@ const Contacts = ({ contacts, onDeleteContact }) => {
         <li key={id}>
           <p>
             {name}: {number}
-            <button
-              type="button"
-              onClick={() => onDeleteContact(id)}
-              className={css`
-                margin-left: 20px;
-                border-radius: 4px;
-              `}
-            >
+            <SubmitButton type="button" onClick={() => onDeleteContact(id)}>
               Delete
-            </button>
+            </SubmitButton>
           </p>
         </li>
       ))}

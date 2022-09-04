@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { css } from '@emotion/css';
+import { MyForm, SubmitButton, Input } from './SubmitForm.styled';
 
 const nameRegex = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/g;
 const numberRegex =
@@ -38,32 +38,17 @@ export class SubmitForm extends Component {
           }}
         >
           {({ isSubmitting }) => (
-            <Form
-              className={css`
-                display: flex;
-                flex-direction: column;
-                padding: 15px;
-                font-size: 16px;
-                width: 25%;
-                border: 1px solid;
-              `}
-            >
+            <MyForm>
               <p>Name:</p>
-              <Field type="name" name="name" />
+              <Field type="name" name="name" as={Input} />
               <ErrorMessage name="name" component="div" />
               <p>Number:</p>
-              <Field type="name" name="number" />
+              <Field type="name" name="number" as={Input} />
               <ErrorMessage name="number" component="div" />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={css`
-                  margin-top: 15px;
-                `}
-              >
+              <SubmitButton type="submit" disabled={isSubmitting}>
                 Add contact
-              </button>
-            </Form>
+              </SubmitButton>
+            </MyForm>
           )}
         </Formik>
       </div>
